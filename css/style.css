@@ -39,10 +39,11 @@
     --text-medium: 5rem;
     --text-regular: 4rem;
     --text-light: 3rem;
-    --text-extraLight: 2rem;
-    /* --text-extraLightHalf: 2.5rem; */
     --text-extraLightHalf: clamp(1.2rem, 4.5vw, 2.5rem);
-    --text-thinHalf: 1.5rem;
+    --text-extraLight: clamp(1.5rem, 5vw, 2rem);
+    --text-thinQuart: clamp(.8rem, 5vw, 1.7rem);
+    --text-thinHalf: clamp(.8rem, 5vw, 1.5rem);
+    --text-thin: clamp(.5rem, 5vw, 1rem);
 }
 
 /* =======================================
@@ -161,7 +162,7 @@ ul {
 }
 
 .navlink {
-    font-size: 1.7rem;
+    font-size: var(--text-extraLigh);
     font-weight: 500;
     text-transform: capitalize;
     color: var(--text-black);
