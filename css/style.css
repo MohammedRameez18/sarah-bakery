@@ -44,6 +44,9 @@
     --text-thinQuart: clamp(.8rem, 5vw, 1.7rem);
     --text-thinHalf: clamp(.8rem, 5vw, 1.5rem);
     --text-thin: clamp(.5rem, 5vw, 1rem);
+    
+    /* BOX SHADOW */
+    --shadow: 0 0 10px rgba(0,0,0,0.2):
 }
 
 /* =======================================
@@ -79,7 +82,9 @@ a {
 ul {
     list-style: none;
 }
-
+img{
+    width: 10rem;
+}
 .btn {
     position: relative;
     font-weight: 600;
@@ -236,6 +241,37 @@ ul {
     align-items: center;
     gap: 1.5rem;
 }
+
+/* =======================================
+    ABOUT SECTION
+=======================================*/
+.about .about-content{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-content: center;
+    gap: 1rem;
+}
+.about .about-content .image{
+    width: 100%;
+}
+.about .about-content .image img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+/* =======================================
+    MENU SECTION
+=======================================*/
+
+/* =======================================
+    REVIEWS SECTION
+=======================================*/
+
+/* =======================================
+    CONTACT SECTION
+=======================================*/
 
 /* =======================================
     MEDIA QUERIES
