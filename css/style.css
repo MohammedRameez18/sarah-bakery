@@ -14,6 +14,7 @@
 :root {
     /* FONTS */
     --brand-font: "Poppins", sans-serif;
+    /* ------------------------------ */
     
     /* BG COLORS */
     --bg-primary: #c1967a;
@@ -22,12 +23,16 @@
     --bg-white: #ffffff;
     --bg-green: #04dd9b;
     --bg-green-100: rgba(0, 255, 0, 0.1);
+    /* ------------------------------ */
+
     
     /* COLORS */
     --text-primary: #c1967a;
     --text-black: #000;
     --text-white: #fff;
     --text-lightWhite: #f7f8f2;
+    /* ------------------------------ */
+
     
     /*     PADDING  */
     --page-padding: 10rem;
@@ -36,6 +41,7 @@
     --btn-inline-padding: clamp(1rem, 5vw, 2.5rem);
     --btn-block-padding: clamp(1rem, 5vw, 1.2rem);
     /* --page-y-padding: 10rem; */
+    /* ------------------------------ */
     
     /* FONT SIZE */
     --text-semi: 6rem;
@@ -47,16 +53,24 @@
     --text-thinQuart: clamp(.8rem, 5vw, 1.7rem);
     --text-thinHalf: clamp(.8rem, 5vw, 1.5rem);
     --text-thin: clamp(.5rem, 5vw, 1rem);
+    /* ------------------------------ */
     
     /* BOX SHADOW */
     --shadow: 0 4px 15px rgba(0,0,0,0.2);
+    /* ------------------------------ */
     
     /* CARDS */
     --card-image-ratio: 16/9;
     --card-bg: var(--bg-lightWhite);
+    /* ------------------------------ */
     
     /* BORDER */
     --border-grey: grey;
+    /* ------------------------------ */
+
+    /* BORDER RADIUS  */
+    --bd-r-regular:5px;
+    --bd-r-medium:10px;
 }
 
 /* =======================================
@@ -112,7 +126,7 @@ img{
     border: none;
     transition: 0.4s ease-in;
 }
-
+/* Primary Btns */
 .primary-btn {
     background: var(--bg-primary);
     padding-inline: var(--primary-btn-paddingX);
@@ -144,6 +158,7 @@ img{
     color: var(--text-black);
     border: none;
 }
+/* Container */
 .container {
     width: 100%;
     max-width: 1200px;
@@ -152,6 +167,7 @@ img{
     border: 1px solid #fff;
 }
 
+/* Section Title */
 .section-title{
     width: 100%;
     max-width: 60vw;
@@ -302,13 +318,13 @@ img{
     aspect-ratio: var(--card-image-ratio);
     width: 100%;
     padding: 1rem;
-    border-radius: 5px;
+    border-radius: var(--bd-r-medium);
     box-shadow: var(--shadow);
     background: var(--card-bg);
 }
 .menu .menu-card .menu-img{
     width: 100%;
-    border-radius: 5px;
+    border-radius: var(--bd-r-medium);
     box-shadow: var(--shadow);
 }
 .menu-card .menu-card-content{
@@ -334,6 +350,7 @@ img{
     font-size: var(--text-extraLight);
     font-weight: 400;
     color: var(--text-black);
+    text-align: center;
 }
 .menu-card .input-group input{
     width: 5.5rem;
