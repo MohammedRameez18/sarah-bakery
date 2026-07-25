@@ -21,6 +21,7 @@
     /* --bg-lightWhite: #f7f8f2; */
     --bg-lightWhite: #f7f7f7;
     --bg-white: #ffffff;
+    --bg-gold: #fad048;
     --bg-green: #04dd9b;
     --bg-green-100: rgba(0, 255, 0, 0.1);
     /* ------------------------------ */
@@ -31,6 +32,8 @@
     --text-black: #000;
     --text-white: #fff;
     --text-lightWhite: #f7f8f2;
+    --text-green-100: rgba(0, 255, 0, 0.1);
+
     /* ------------------------------ */
 
     
@@ -62,6 +65,8 @@
     /* CARDS */
     --card-image-ratio: 16/9;
     --card-bg: var(--bg-lightWhite);
+    --card-padding-inline: 1rem;
+    --card-padding-block: 1rem;
     /* ------------------------------ */
     
     /* BORDER */
@@ -93,7 +98,7 @@ h1 {
     line-height: 1.3;
 }
 h2{
-    font-size: var(--text-regular);
+    font-size: var(--text-light);
     font-weight: 600;
 }
 h3{
@@ -291,6 +296,7 @@ img{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     justify-content: center;
+    align-items: center;
     gap: 1rem;
 }
 .about .about-content .image{
@@ -317,7 +323,8 @@ img{
     position: relative;
     aspect-ratio: var(--card-image-ratio);
     width: 100%;
-    padding: 1rem;
+    padding-inline: var(--card-padding-inline);
+    padding-block: var(--card-padding-block);
     border-radius: var(--bd-r-medium);
     box-shadow: var(--shadow);
     background: var(--card-bg);
@@ -374,9 +381,62 @@ img{
     color: var(--text-white);
 }
 /* =======================================
-    REVIEWS SECTION
+    REVIEWS / TESTIMONIALS SECTION 
 =======================================*/
-
+.reviews .reviews-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center;
+    gap: 1rem;
+}
+.reviews .reviews-content .review-card{
+    width: 100%;
+    position: relative;
+    padding-inline: var(--card-padding-inline);
+    padding-block: var(--card-padding-block);
+    background: var(--bg-lightWhite);
+    border-radius: var(--bd-r-medium);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+.review-card .quotes-icon .icon{
+    width: 4rem;
+    height:4rem;
+    fill:var(--text-green-100);
+}
+.review-card p{
+    font-style: italic;
+}
+.review-card .review-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background: var(--bg-green-100);
+    border-radius: var(--bd-r-medium);
+    padding: .6rem;
+}
+.review-footer .ratings{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+.review-footer .icon-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.review-footer .icon-box .icon{
+    width: 2rem;
+    height: 2rem;
+    fill: var(--bg-gold);
+}
+.review-footer img{
+    width: clamp(3rem, 10vw, 7rem);
+    height: clamp(3rem, 10vw, 7rem);
+    border-radius: 50%;
+    object-fit: cover;
+}
 /* =======================================
     CONTACT SECTION
 =======================================*/
