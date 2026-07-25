@@ -17,8 +17,11 @@
     
     /* BG COLORS */
     --bg-primary: #c1967a;
-    --bg-lightWhite: #f7f8f2;
+    /* --bg-lightWhite: #f7f8f2; */
+    --bg-lightWhite: #f7f7f7;
     --bg-white: #ffffff;
+    --bg-green: #04dd9b;
+    --bg-green-100: rgba(0, 255, 0, 0.1);
     
     /* COLORS */
     --text-primary: #c1967a;
@@ -30,8 +33,8 @@
     --page-padding: 10rem;
     --primary-btn-paddingX: clamp(2rem, 6vw, 7rem);
     --primary-btn-paddingY: clamp(1rem, 5vw, 1.6rem);
-    --btn-inline-padding: 3rem;
-    --btn-block-padding: 2.5rem;
+    --btn-inline-padding: clamp(1rem, 5vw, 2.5rem);
+    --btn-block-padding: clamp(1rem, 5vw, 1.2rem);
     /* --page-y-padding: 10rem; */
     
     /* FONT SIZE */
@@ -46,7 +49,14 @@
     --text-thin: clamp(.5rem, 5vw, 1rem);
     
     /* BOX SHADOW */
-    --shadow: 0 0 10px rgba(0,0,0,0.2):
+    --shadow: 0 4px 15px rgba(0,0,0,0.2);
+    
+    /* CARDS */
+    --card-image-ratio: 16/9;
+    --card-bg: var(--bg-lightWhite);
+    
+    /* BORDER */
+    --border-grey: grey;
 }
 
 /* =======================================
@@ -54,6 +64,7 @@
 =======================================*/
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -67,7 +78,14 @@ h1 {
     color: var(--text-white);
     line-height: 1.3;
 }
-
+h2{
+    font-size: var(--text-regular);
+    font-weight: 600;
+}
+h3{
+    font-weight: 500;
+    font-size: var(--text-extraLight);
+}
 p {
     font-weight: 500;
     font-size: var(--text-extraLightHalf);
@@ -88,6 +106,7 @@ img{
 .btn {
     position: relative;
     font-weight: 600;
+    font-size: var(--text-thinHalf);
     cursor: pointer;
     outline: none;
     border: none;
@@ -133,7 +152,13 @@ img{
     border: 1px solid #fff;
 }
 
-
+.section-title{
+    width: 100%;
+    max-width: 60vw;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 7rem;
+}
 
 /* =======================================
     HEADER
@@ -264,7 +289,73 @@ img{
 /* =======================================
     MENU SECTION
 =======================================*/
-
+.menu{
+    background: var(--bg-lightWhite);
+}
+.menu .menu-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+.menu .menu-content .menu-card{
+    position: relative;
+    aspect-ratio: var(--card-image-ratio);
+    width: 100%;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+    background: var(--card-bg);
+}
+.menu .menu-card .menu-img{
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+}
+.menu-card .menu-card-content{
+    display: flex;
+    flex-direction: column;
+}
+.menu-card .content-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .6rem;
+}
+.menu-card .input-group{
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    flex-wrap: wrap;
+}
+.menu-card .input-group .btn{
+    padding-inline: clamp(.5rem, 5vw, 1.8rem);
+    padding-block: clamp(.5rem, 5vw, .7rem);
+    background: var(--bg-green-100);
+    font-size: var(--text-extraLight);
+    font-weight: 400;
+    color: var(--text-black);
+}
+.menu-card .input-group input{
+    width: 5.5rem;
+    height: 4.2rem;
+    padding: .5rem;
+    font-size: var(--text-thinHalf);
+}
+.menu-card .order-btn{
+    position: relative;
+    margin-left:auto;
+    margin-top: 1rem;
+    padding-inline: var(--btn-inline-padding);
+    padding-block: var(--btn-block-padding);
+    background: var(--bg-green-100);
+    border-radius: 50px;
+    color: var(--text-black);
+    transition: background 0.3s ease-in, color 0.3d ease-in;
+}
+.menu-card .order-btn:hover{
+    background: var(--bg-green);
+    color: var(--text-white);
+}
 /* =======================================
     REVIEWS SECTION
 =======================================*/
@@ -281,6 +372,11 @@ img{
         width: 100%;
         max-width: 90vw;
     }
+    .section-title{
+        width: 100%;
+        max-width: 90vw;
+    }
+
 }
 
 @media (max-width:768px) {
