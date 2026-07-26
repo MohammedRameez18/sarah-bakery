@@ -315,8 +315,8 @@ img{
     width: 100%;
 }
 .about .about-content .image img{
-    aspect-ratio: 16/9;
     width: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 10px;
     box-shadow: var(--shadow);
@@ -334,7 +334,6 @@ img{
 }
 .menu .menu-content .menu-card{
     position: relative;
-    aspect-ratio: var(--card-image-ratio);
     width: 100%;
     padding-inline: var(--card-padding-inline);
     padding-block: var(--card-padding-block);
