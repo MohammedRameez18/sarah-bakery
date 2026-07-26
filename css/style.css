@@ -16,8 +16,9 @@
     --brand-font: "Poppins", sans-serif;
     /* ------------------------------ */
     
-    /* BG COLORS */
+    /* Main COLORS */
     --primary:#c1967a;
+    --accent-color: dodgerblue;
     
     /* BG COLORS */
     --bg-primary: var(--primary);
@@ -27,6 +28,7 @@
     --bg-gold: #fad048;
     --bg-green: #04dd9b;
     --bg-green-100: rgba(0, 255, 0, 0.1);
+    --bg-blue: var(--accent-color);
     /* ------------------------------ */
 
     /* COLORS */
@@ -73,6 +75,8 @@
     /* ------------------------------ */
     
     /* BORDER */
+    --border-thin: 1px solid #ccc;
+    --border-thinHalf: 1.5px solid #ccc;
     --border-grey: grey;
     /* ------------------------------ */
 
@@ -124,6 +128,12 @@ ul {
 }
 img{
     width: 10rem;
+}
+/* SVG ICONS */
+.icon{
+    width: 3rem;
+    height: 3rem;
+    fill: currentColor;
 }
 .btn {
     position: relative;
@@ -456,7 +466,64 @@ img{
 /* =======================================
     CONTACT SECTION
 =======================================*/
+.contact .contact-content{
+    width: 100%;
+}
+.contact .contact-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.contact-form .input-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 0;
+}
+.contact-form input,
+.contact-form textarea{
+    width: 100%;
+    padding: clamp(1rem, 5vw, 1.5rem);
+    font-size: var(--text-thinHalf);
+    border-radius: var(--bd-r-regular);
+    border: var(--border-thinHalf);
+    outline: none;
+    color: var(--text-black);
+}
+.contact-form textarea{
+    height: 20rem;
+}
+.contact-form input:focus,
+.contact-form textarea:focus{
+    border: 1.5px solid var(--accent-color);
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+    transition: transform 0.3s ease-in,
+                color 0.3s ease-in;
 
+}
+
+.contact-form input:focus::placeholder{   transform: translateY(-35px);
+    color: var(--accent-color);
+}
+.contact-form textarea:focus::placeholder{
+    transform: translateY(150px);
+    color: var(--accent-color);
+}
+.contact-form .btn{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+    padding-block: var(--btn-block-padding);
+    border-radius: var(--bd-r-regular);
+    background: var(--bg-blue);
+}
 /* =======================================
     MEDIA QUERIES
 =======================================*/
