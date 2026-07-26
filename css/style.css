@@ -344,6 +344,8 @@ img{
 }
 .menu .menu-card .menu-img{
     width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
     border-radius: var(--bd-r-medium);
     box-shadow: var(--shadow);
 }
