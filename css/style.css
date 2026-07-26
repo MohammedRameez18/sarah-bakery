@@ -227,7 +227,7 @@ img{
 }
 
 .navlink {
-    font-size: var(--text-extraLigh);
+    font-size: var(--text-extraLight);
     font-weight: 500;
     text-transform: capitalize;
     color: var(--text-black);
