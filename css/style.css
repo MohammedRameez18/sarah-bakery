@@ -17,7 +17,10 @@
     /* ------------------------------ */
     
     /* BG COLORS */
-    --bg-primary: #c1967a;
+    --primary:#c1967a;
+    
+    /* BG COLORS */
+    --bg-primary: var(--primary);
     /* --bg-lightWhite: #f7f8f2; */
     --bg-lightWhite: #f7f7f7;
     --bg-white: #ffffff;
@@ -26,9 +29,8 @@
     --bg-green-100: rgba(0, 255, 0, 0.1);
     /* ------------------------------ */
 
-    
     /* COLORS */
-    --text-primary: #c1967a;
+    --text-primary: var(--primary);
     --text-black: #000;
     --text-white: #fff;
     --text-lightWhite: #f7f8f2;
@@ -39,11 +41,12 @@
     
     /*     PADDING  */
     --page-padding: 10rem;
+    
+    /*   BUTTONS  PADDING  */
     --primary-btn-paddingX: clamp(2rem, 6vw, 7rem);
     --primary-btn-paddingY: clamp(1rem, 5vw, 1.6rem);
     --btn-inline-padding: clamp(1rem, 5vw, 2.5rem);
     --btn-block-padding: clamp(1rem, 5vw, 1.2rem);
-    /* --page-y-padding: 10rem; */
     /* ------------------------------ */
     
     /* FONT SIZE */
@@ -251,7 +254,6 @@ img{
 }
 
 .hero .container {
-    /* background: rgba(255,255,255,0.3); */
     border-radius: 10px;
 }
 
@@ -264,7 +266,6 @@ img{
     align-items: center;
     flex-direction: column;
     text-align: center;
-    /* background: yellow; */
 }
 
 .hero .hero-content h1 {
@@ -389,15 +390,29 @@ img{
     justify-content: center;
     gap: 1rem;
 }
-.reviews .reviews-content .review-card{
+.reviews .review-card{
     width: 100%;
     position: relative;
-    padding-inline: var(--card-padding-inline);
-    padding-block: var(--card-padding-block);
     background: var(--bg-lightWhite);
     border-radius: var(--bd-r-medium);
     box-shadow: var(--shadow);
     text-align: center;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+.review-card .review-card-body{
+    width: 100%;
+    height: 100%;
+    padding-inline: var(--card-padding-inline);
+    padding-block: var(--card-padding-block);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
 }
 .review-card .quotes-icon .icon{
     width: 4rem;
@@ -408,13 +423,14 @@ img{
     font-style: italic;
 }
 .review-card .review-footer{
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
     background: var(--bg-green-100);
-    border-radius: var(--bd-r-medium);
-    padding: .6rem;
+    border-radius: 0 0 10px 10px;
+    padding: 1rem;
 }
 .review-footer .ratings{
     display: flex;
