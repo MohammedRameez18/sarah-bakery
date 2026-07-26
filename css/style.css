@@ -184,7 +184,6 @@ img{
     max-width: 1200px;
     margin-inline: auto;
     padding-block: var(--page-padding);
-    border: 1px solid #fff;
 }
 
 /* Section Title */
@@ -260,7 +259,7 @@ img{
     justify-content: center;
     align-items: center;
     
-    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url("../assets/images/hero_bg_primary.jpg") center center no-repeat;
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url("../assets/images/hero_bg_primary.jpg") center no-repeat;
     background-size: cover;
     
 }
@@ -316,6 +315,7 @@ img{
     width: 100%;
 }
 .about .about-content .image img{
+    aspect-ratio: 16/9;
     width: 100%;
     object-fit: cover;
     border-radius: 10px;
