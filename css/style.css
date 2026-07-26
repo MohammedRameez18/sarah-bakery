@@ -16,8 +16,9 @@
     --brand-font: "Poppins", sans-serif;
     /* ------------------------------ */
     
-    /* Main COLORS */
+    /* BRAND COLORS */
     --primary:#c1967a;
+    --secondary: rgba(129, 75, 25, 0.1);
     --accent-color: dodgerblue;
     
     /* BG COLORS */
@@ -29,6 +30,7 @@
     --bg-green: #04dd9b;
     --bg-green-100: rgba(0, 255, 0, 0.1);
     --bg-blue: var(--accent-color);
+    --bg-lightBrown: var(--secondary);
     /* ------------------------------ */
 
     /* COLORS */
@@ -427,7 +429,7 @@ img{
 .review-card .quotes-icon .icon{
     width: 4rem;
     height:4rem;
-    fill:var(--text-green-100);
+    fill:var(--bg-lightBrown);
 }
 .review-card p{
     font-style: italic;
@@ -438,7 +440,8 @@ img{
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    background: var(--bg-green-100);
+    /* background: var(--bg-green-100); */
+    background: var(--bg-lightBrown);
     border-radius: 0 0 10px 10px;
     padding: 1rem;
 }
@@ -462,6 +465,8 @@ img{
     height: clamp(3rem, 10vw, 7rem);
     border-radius: 50%;
     object-fit: cover;
+    border: 2px solid var(--bg-lightWhite);
+    box-shadow: var(--shadow);
 }
 /* =======================================
     CONTACT SECTION
@@ -479,7 +484,6 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     gap: 2rem;
     margin: 0;
 }
@@ -523,6 +527,32 @@ img{
     padding-block: var(--btn-block-padding);
     border-radius: var(--bd-r-regular);
     background: var(--bg-blue);
+}
+
+/* =======================================
+    FOOTER
+=======================================*/
+.footer{
+    padding:clamp(1.5rem, 5vw, 2rem);
+    background: var(--bg-lightWhite);
+    text-align: center;
+}
+.footer p{
+    font-size: var(--text-thinQuart);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+.footer p span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer p .icon{
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: var(--primary);
 }
 /* =======================================
     MEDIA QUERIES
@@ -608,4 +638,9 @@ img{
     .hero .hero-btns {
         flex-direction: column;
     }
+    
+    .contact-form .input-group{
+        flex-direction: column;
+    }
+
 }
