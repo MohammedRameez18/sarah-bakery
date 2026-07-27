@@ -10,6 +10,85 @@
   <title>Sarah Bakery - Get Delicious Desserts</title>
   
   <!-- HTML -->
+  <style>
+    html {
+      font-size: 62.5%;
+    }
+    
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+    }
+    
+    .header {
+      width: 100%;
+      background: var(--bg-lightWhite);
+    }
+    
+    .header .container {
+      padding-inline: 0;
+      padding-block: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .logo {
+      font-size: 3rem;
+      font-weight: 700;
+      text-transform: capitalize;
+      color: var(--text-black);
+    }
+    
+    .navbar .navlist {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
+    
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      /* background: #333; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url("../assets/images/hero_bg_primary.jpg") center no-repeat;
+      background-size: cover;
+      
+    }
+    
+    .hero .hero-content {
+      width: 100%;
+      max-width: 75%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .hero .hero-content h1 {
+      font-size: var(--text-semi);
+      color: var(--text-white);
+      display: block;
+    }
+    
+    .hero .hero-content p {
+      color: var(--text-white);
+    }
+    
+    .primary-btn,
+    .primary-border-btn {
+      padding-inline: var(--primary-btn-paddingX);
+      padding-block: var(--primary-btn-paddingY);
+      border-radius:50px;
+    }
+  </style>
   
   
   <!-- PRELOAD: Custom Styles  -->
@@ -107,10 +186,7 @@
         </div>
         <div class="menu-content">
           <div class="menu-card">
-            <img src="assets/images/menu-1.jpg" alt="fresh bread and croissants" class="menu-img"
-              width="640" height="427"
-              loading="lazy"
-            >
+            <img src="assets/images/menu-1.jpg" alt="fresh bread and croissants" class="menu-img" width="640" height="427" loading="lazy">
             <div class="menu-card-content">
               <div class="content-group">
                 <h3>Bread and Croissants</h3>
@@ -138,10 +214,7 @@
             </div>
           </div>
           <div class="menu-card">
-            <img src="assets/images/menu-3.jpg" alt="fresh homemade lemon loaf cake" class="menu-img" 
-              width="640" height="427"
-              loading="lazy"
-            >
+            <img src="assets/images/menu-3.jpg" alt="fresh homemade lemon loaf cake" class="menu-img" width="640" height="427" loading="lazy">
             <div class="menu-card-content">
               <div class="content-group">
                 <h3>Lemon Loaf Cake</h3>
@@ -155,10 +228,7 @@
             </div>
           </div>
           <div class="menu-card">
-            <img src="assets/images/menu-4.jpg" alt=" fresh strawbery cupcake" class="menu-img" 
-              width="640" height="427"
-              loading="lazy"
-            >
+            <img src="assets/images/menu-4.jpg" alt=" fresh strawbery cupcake" class="menu-img" width="640" height="427" loading="lazy">
             <div class="menu-card-content">
               <div class="content-group">
                 <h3>Strawbery Cupcake</h3>
@@ -172,10 +242,7 @@
             </div>
           </div>
           <div class="menu-card">
-            <img src="assets/images/menu-5.jpg" alt="fresh lemon choclate cake" class="menu-img"
-              width="640" height="427"
-              loading="lazy"
-            >
+            <img src="assets/images/menu-5.jpg" alt="fresh lemon choclate cake" class="menu-img" width="640" height="427" loading="lazy">
             <div class="menu-card-content">
               <div class="content-group">
                 <h3>Lemon Choclate Cake</h3>
@@ -189,10 +256,7 @@
             </div>
           </div>
           <div class="menu-card">
-            <img src="assets/images/menu-6.jpg" alt="fresh baked seeded bread rolls" class="menu-img"
-              width="640" height="427"
-              loading="lazy"
-            >
+            <img src="assets/images/menu-6.jpg" alt="fresh baked seeded bread rolls" class="menu-img" width="640" height="427" loading="lazy">
             <div class="menu-card-content">
               <div class="content-group">
                 <h3>Seeded Bread Rolls</h3>
@@ -262,8 +326,7 @@
                   </svg>
                 </span>
               </div>
-              <img src="assets/images/user-1.jpg" alt="user Axel" width="200" height="167"
-              loading="lazy"/>
+              <img src="assets/images/user-1.jpg" alt="user Axel" width="200" height="167" loading="lazy" />
             </div>
           </div>
           <!-- REVIEW CARD 2 -->
@@ -308,9 +371,7 @@
                   </svg>
                 </span>
               </div>
-              <img src="assets/images/user-2.jpg" alt="user Axel" width="640" height="480"
-              loading="lazy"
-              />
+              <img src="assets/images/user-2.jpg" alt="user Axel" width="640" height="480" loading="lazy" />
             </div>
           </div>
           <!-- REVIEW CARD 3 -->
@@ -355,9 +416,7 @@
                   </svg>
                 </span>
               </div>
-              <img src="assets/images/user-3.jpg" alt="user Axel" width="640" height="489"
-                loading="lazy"
-              />
+              <img src="assets/images/user-3.jpg" alt="user Axel" width="640" height="489" loading="lazy" />
             </div>
           </div>
         </div>
@@ -377,34 +436,18 @@
           <form action="" class="contact-form" id="contact-form">
             <!-- Input Group -->
             <div class="input-group">
-              <input type="text" name="contact_fullname" placeholder="Full Name"
-                id="contact_fullname"
-                aria-label="Add your full name"
-                required
-              >
-              <input type="email" name="contact_email" placeholder="Email Address"
-                id="contact_email"
-                aria-label="Add your email address"
-                required
-              >
+              <input type="text" name="contact_fullname" placeholder="Full Name" id="contact_fullname" aria-label="Add your full name" required>
+              <input type="email" name="contact_email" placeholder="Email Address" id="contact_email" aria-label="Add your email address" required>
               
             </div>
-            <input type="text" name="contact_subject" placeholder="Subject"
-              id="contact_subject"
-              aria-label="Add your subject"
-              required
-            >
-            <textarea name="contact_message" id="contact_message"
-            placeholder="Message"
-              aria-label="Add your message"
-              required
-            ></textarea>
+            <input type="text" name="contact_subject" placeholder="Subject" id="contact_subject" aria-label="Add your subject" required>
+            <textarea name="contact_message" id="contact_message" placeholder="Message" aria-label="Add your message" required></textarea>
             <button type="submit" class="btn">
               <svg class="icon">
                 <use href="assets/icons/icons_sprite.svg#icon-paper-plane"></use>
               </svg>
               Submit
-              </button>
+            </button>
           </form>
         </div>
       </div>
@@ -416,11 +459,11 @@
       <p>
         &copy;Copyright - 2026 - Crafted with
         <span>
-                  <svg class="icon">
-          <use href="assets/icons/icons_sprite.svg#icon-heart"></use>
-        </svg>
+          <svg class="icon">
+            <use href="assets/icons/icons_sprite.svg#icon-heart"></use>
+          </svg>
         </span>
-
+        
       </p>
     </footer>
     <!-- FOOTER SECTION ENDS -->
