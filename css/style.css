@@ -38,6 +38,7 @@
     --text-black: #000;
     --text-white: #fff;
     --text-lightWhite: #f7f8f2;
+    --text-red: tomato;
     --text-green: #04dd9b;
     --text-green-100: rgba(0, 255, 0, 0.1);
 
@@ -64,6 +65,7 @@
     --text-thinQuart: clamp(.8rem, 5vw, 1.7rem);
     --text-thinHalf: clamp(.8rem, 5vw, 1.5rem);
     --text-thin: clamp(.5rem, 5vw, 1rem);
+    --text-extraThin: clamp(.3rem, 5vw, .8rem);
     /* ------------------------------ */
     
     /* BOX SHADOW */
@@ -203,7 +205,14 @@ img{
     width: 100%;
     background: var(--bg-lightWhite);
 }
-
+.header.active{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 900;
+    box-shadow: var(--shadow);
+}
 .header .container {
     padding-inline: 0;
     padding-block: 3rem;
@@ -367,7 +376,7 @@ img{
     padding: .2rem 1rem;
     border: 1px dashed #ccc;
 }
-.menu-card-content .group{
+.menu-card-content .control-group{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -379,6 +388,7 @@ img{
     gap: .6rem;
     flex-wrap: wrap;
 }
+
 .menu-card .input-group .btn{
     padding-inline: clamp(.5rem, 5vw, 1.8rem);
     padding-block: clamp(.5rem, 5vw, .7rem);
@@ -408,6 +418,13 @@ img{
 .menu-card .order-btn:hover{
     background: var(--bg-green);
     color: var(--text-white);
+}
+.menu-card small.msg {
+    font-size: clamp(.7rem, 5vw, 1.2rem);
+    color: var(--text-red);
+}
+.menu-card .btn{
+    touch-action: manipulation; 
 }
 /* =======================================
     REVIEWS / TESTIMONIALS SECTION 

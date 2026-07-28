@@ -12,35 +12,47 @@ function helper(element, event, callback) {
 const menuBar = $(".menu-bar");
 const closeNav = $(".close");
 const navbar = $(".navbar");
+const navlinks = $$(".navlink");
 const menus = $(".menus");
+const header = $(".header");
+
+/* ------------------------------------
+    SCROLL EVENTS: HEADER
+---------------------------------------*/
+function headerScrolled(){
+  header.classList.toggle("active", window.scrollY > 0);
+}
 
 /* ------------------------------------
     MENU CARDS
 ---------------------------------------*/
-
+// Decrease Qty
 function decreaseQty(e) {
   const menuCard = e.closest(".menu-card");
   
   // Select qty input and get its value
   let qtyEl = menuCard.querySelector(".qty");
+  let msg = menuCard.querySelector(".msg");
+
   let val = qtyEl.value;
   
   // decerement a value until val is greater than one
   if (val > 1) {
     val--; //deceremt it
     qtyEl.value = val;
-    console.log(val);
-    
+    msg.textContent = "";
   } else {
-    console.log("qty is back to 1!");
+    msg.textContent = "minimum reached!";
   }
 }
 
+// Increase Qty
 function increaseQty(e) {
   const menuCard = e.closest(".menu-card");
   
   // Select qty input and get its value
   let qtyEl = menuCard.querySelector(".qty");
+  let msg = menuCard.querySelector(".msg");
   let val = qtyEl.value;
   
   // increment a value until value is less than 10
@@ -48,12 +60,13 @@ function increaseQty(e) {
     val++;
     qtyEl.value = val;
     console.log(val);
-    
+    msg.textContent = "";
   } else {
-    console.log("You can only order 10 items at a time!");
+    msg.textContent = "maximun reached!";
   }
 }
 
+// Show Menu Cards
 function showMenuCards() {
   const menuContent = menus.querySelector(".menu-content")
   let template = "";
@@ -67,24 +80,25 @@ function showMenuCards() {
                 <h3>${item.name}</h3>
                 <small class="price">${item.price}</small>
               </div>
-              <div class="group">
-                <div class="input-group">
-                  <button class="btn decrease" onclick="decreaseQty(this)">-</button>
-                  <input type="number" class="qty" id="qty-${index+1}" value="1" aria-label="input quantity">
-                  <button class="btn increase" onclick="increaseQty(this)">+</button>
-                </div>
-                <button class="btn order-btn">Order Now</button>
+              <div class="control-group">
+                  <div class="input-group">
+                    <button class="btn decrease" onclick="decreaseQty(this)">-</button>
+                    <input type="number" class="qty" id="qty-${index+1}" value="1" aria-label="input quantity">
+                    <button class="btn increase" onclick="increaseQty(this)">+</button>
+                  </div>
+                  <button class="btn order-btn">Order No
+                  </button>
 
               </div>
+                <small class="msg">
+                  </small>
+              </div>
             </div>
-          </div>
 
     `;
   })
   menuContent.innerHTML = template;
 }
-
-
 
 
 /* ------------------------------------
@@ -104,8 +118,13 @@ document.addEventListener("DOMContentLoaded", () => {
   
   showMenuCards();
   
+  // Helper Functions called
+  helper(window, "scroll", headerScrolled);
   helper(menuBar, "click", openNavbar);
   helper(closeNav, "click", closeNavbar);
+  navlinks.forEach((link)=>{
+    helper(link, "click", closeNavbar);
+  })
 })
 
 
