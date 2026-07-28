@@ -18,21 +18,90 @@ const header = $(".header");
 const themeSwitch = $(".theme-switch");
 const body = $("body");
 
+const myArray = [];
+const THEME_KEY = "theme";
+const LAST_THEME_DATE = "lastThemeDate";
+/* ======================================
+  LOCAL STORAGE
+=======================================*/
+const STORAGE_KEY = "sarahBakery";
+const defaultData = {
+  theme: "light",
+  lastThemeDate: null
+}
+
+function getThemeValue(name) {
+  return getStorageData(STORAGE_KEY)[name];
+}
+
+function setThemeValue(name, value) {
+  const storageData = getStorageData(STORAGE_KEY);
+  storageData[name] = value;
+  saveStorageData(STORAGE_KEY, storageData);
+}
+
+function getStorageData(key) {
+  const data = localStorage.getItem(key);
+  return data ? JSON.parse(data) : { ...defaultData };
+}
+
+function saveStorageData(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
 /* ------------------------------------
     THEME SWITCH: DARK MODE
 ---------------------------------------*/
-function toggleTheme(){
+//For auto theme toggle based on time
+function autoToggleTheme(){
+  let hours = new Date().getHours();
+  const date = new Date().getDate();
+
+  const mydata = getStorageData(STORAGE_KEY);
+
+  
+  if(hours >= 17 && hours <= 21){
+    mydata.theme = "dark";
+  }else{
+    mydata.theme = "light";
+  }
+  
+  mydata.lastThemeDate = date;
+  saveStorageData(STORAGE_KEY, mydata);
+
+}
+
+function toggleTheme() {
   const moon = themeSwitch.querySelector(".moon");
   const light = themeSwitch.querySelector(".light");
+  const date = new Date().getDate();
+  
+  // As a whole object
+  const mydata = getStorageData(STORAGE_KEY);
+  
   body.classList.toggle("dark-mode");
   
-  if(body.classList.contains("dark-mode")){
+  if (body.classList.contains("dark-mode")) {
     moon.classList.add("remove");
     light.classList.add("active");
-  }else{
+    
+    //update theme prop
+    mydata.theme = "dark";
+    
+  } else {
     moon.classList.remove("remove");
     light.classList.remove("active");
+    
+    mydata.theme = "light";
   }
+  
+  //update date prop
+  mydata.lastThemeDate = date;
+  
+  //update whole object
+  saveStorageData(STORAGE_KEY, mydata);
+  console.log(typeof mydata);
+  console.log(mydata);
 }
 /* ------------------------------------
     SCROLL EVENTS: HEADER
@@ -49,6 +118,7 @@ function getPrice(element) {
   let total = element.querySelector("[data-price]");
   return Number(total.dataset.price);
 }
+
 // CALCULATE PRICE
 function calculatePrice(price, qty) {
   return price * qty;
@@ -99,7 +169,7 @@ function increaseQty(e) {
     qty++;
     qtyEl.value = qty;
     msg.textContent = "";
-
+    
     price = calculatePrice(price, qty);
     priceEl.textContent = "$" + price;
   } else {
@@ -155,6 +225,11 @@ function openNavbar() {
   navbar.classList.add("active");
 }
 
+function AppIntialiser(){
+  autoToggleTheme();
+  toggleTheme();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   
   showMenuCards();
@@ -168,7 +243,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   helper(themeSwitch, "click", toggleTheme);
+  
+  // calls other functions like toggleTheme(₹)
+  AppIntialiser();
 })
+
 
 
 // MENUS DATA
