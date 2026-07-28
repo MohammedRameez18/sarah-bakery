@@ -19,13 +19,22 @@ const header = $(".header");
 /* ------------------------------------
     SCROLL EVENTS: HEADER
 ---------------------------------------*/
-function headerScrolled(){
+function headerScrolled() {
   header.classList.toggle("active", window.scrollY > 0);
 }
 
 /* ------------------------------------
     MENU CARDS
 ---------------------------------------*/
+// GET PRICE
+function getPrice(element) {
+  let total = element.querySelector("[data-price]");
+  return Number(total.dataset.price);
+}
+// CALCULATE PRICE
+function calculatePrice(price, qty) {
+  return price * qty;
+}
 // Decrease Qty
 function decreaseQty(e) {
   const menuCard = e.closest(".menu-card");
@@ -33,14 +42,23 @@ function decreaseQty(e) {
   // Select qty input and get its value
   let qtyEl = menuCard.querySelector(".qty");
   let msg = menuCard.querySelector(".msg");
-
-  let val = qtyEl.value;
+  let priceEl = menuCard.querySelector(".price");
+  
+  
+  let qty = qtyEl.value;
+  
+  // Get Price
+  let price = getPrice(menuCard);
   
   // decerement a value until val is greater than one
-  if (val > 1) {
-    val--; //deceremt it
-    qtyEl.value = val;
+  if (qty > 1) {
+    qty--; //deceremt it
+    qtyEl.value = qty;
     msg.textContent = "";
+    
+    // price = price * qty;
+    price = calculatePrice(price, qty);
+    priceEl.textContent = "$" + price;
   } else {
     msg.textContent = "minimum reached!";
   }
@@ -49,18 +67,23 @@ function decreaseQty(e) {
 // Increase Qty
 function increaseQty(e) {
   const menuCard = e.closest(".menu-card");
-  
-  // Select qty input and get its value
   let qtyEl = menuCard.querySelector(".qty");
   let msg = menuCard.querySelector(".msg");
-  let val = qtyEl.value;
+  let priceEl = menuCard.querySelector(".price");
+  
+  
+  let qty = Number(qtyEl.value);
+  let price = getPrice(menuCard);
+  
   
   // increment a value until value is less than 10
-  if (val < 10) {
-    val++;
-    qtyEl.value = val;
-    console.log(val);
+  if (qty < 10) {
+    qty++;
+    qtyEl.value = qty;
     msg.textContent = "";
+
+    price = calculatePrice(price, qty);
+    priceEl.textContent = "$" + price;
   } else {
     msg.textContent = "maximun reached!";
   }
@@ -78,7 +101,7 @@ function showMenuCards() {
             <div class="menu-card-content">
               <div class="content-group">
                 <h3>${item.name}</h3>
-                <small class="price">${item.price}</small>
+                <small class="price" data-price="${item.price}">$${item.price}</small>
               </div>
               <div class="control-group">
                   <div class="input-group">
@@ -122,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
   helper(window, "scroll", headerScrolled);
   helper(menuBar, "click", openNavbar);
   helper(closeNav, "click", closeNavbar);
-  navlinks.forEach((link)=>{
+  navlinks.forEach((link) => {
     helper(link, "click", closeNavbar);
   })
 })
@@ -134,7 +157,7 @@ const data = [
   image: "../assets/images/menu-1.jpg",
   alt: "fresh bread and croissants",
   name: "Bread and Croissants",
-  price: "$5",
+  price: 5,
   width: "640",
   height: "427",
 },
@@ -142,7 +165,7 @@ const data = [
   image: "../assets/images/menu-2.jpg",
   alt: "fresh lemon cake served on plate",
   name: "Lemon cake",
-  price: "$2",
+  price: 2,
   width: "640",
   height: "427",
 },
@@ -150,7 +173,7 @@ const data = [
   image: "../assets/images/menu-3.jpg",
   alt: "fresh homemade lemon loaf cake",
   name: "Lemon loaf cake",
-  price: "$7",
+  price: 7,
   width: "640",
   height: "427",
 },
@@ -158,7 +181,7 @@ const data = [
   image: "../assets/images/menu-4.jpg",
   alt: "fresh strawbery cupcake",
   name: "Strawbery cupcake",
-  price: "$2",
+  price: 2,
   width: "640",
   height: "427",
 },
@@ -166,7 +189,7 @@ const data = [
   image: "../assets/images/menu-5.jpg",
   alt: "fresh lemon choclate cake",
   name: "Lemon choclaye cake",
-  price: "$5",
+  price: 5,
   width: "640",
   height: "427",
 },
@@ -174,7 +197,7 @@ const data = [
   image: "../assets/images/menu-6.jpg",
   alt: "fresh baked seeded bread rolls",
   name: "Seeded bread rolls",
-  price: "$8",
+  price: 8,
   width: "640",
   height: "427",
 }]
