@@ -343,11 +343,15 @@ img {
     height: 100%;
     fill: var(--text);
 }
-
-.header .theme-switch .icon:last-child {
+.theme-switch .icon:last-child {
     display: none;
 }
-
+.theme-switch .moon.remove{
+    display: none;
+}
+.theme-switch .light.active{
+    display: block;
+}
 /* =======================================
     HERO SECTION
 =======================================*/
@@ -477,11 +481,12 @@ img {
 }
 
 .menu-card .content-group small {
-    font-size: var(--text-light);
+    font-size: var(--text-extraLightHalf);
     font-weight: 600;
     color: var(--text-success);
     padding: .2rem 1rem;
     border: 1px dashed #ccc;
+    border-radius: 5px;
 }
 
 .menu-card-content .control-group {
@@ -504,8 +509,8 @@ img {
     /* background: var(--success-soft); */
     background: var(--accent);
     font-size: var(--text-extraLight);
-    font-weight: 400;
-    color: var(--text);
+    font-weight: 500;
+    color: var(--text-inverse);
     text-align: center;
     border-radius: var(--bd-r-regular);
 }
@@ -530,7 +535,7 @@ img {
     /* background: var(--success-soft); */
     background: var(--accent);
     border-radius: 50px;
-    color: var(--text);
+    color: var(--text-inverse);
     transition: background 0.3s ease-in, color 0.3s ease-in;
 }
 

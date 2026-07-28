@@ -15,7 +15,25 @@ const navbar = $(".navbar");
 const navlinks = $$(".navlink");
 const menus = $(".menus");
 const header = $(".header");
+const themeSwitch = $(".theme-switch");
+const body = $("body");
 
+/* ------------------------------------
+    THEME SWITCH: DARK MODE
+---------------------------------------*/
+function toggleTheme(){
+  const moon = themeSwitch.querySelector(".moon");
+  const light = themeSwitch.querySelector(".light");
+  body.classList.toggle("dark-mode");
+  
+  if(body.classList.contains("dark-mode")){
+    moon.classList.add("remove");
+    light.classList.add("active");
+  }else{
+    moon.classList.remove("remove");
+    light.classList.remove("active");
+  }
+}
 /* ------------------------------------
     SCROLL EVENTS: HEADER
 ---------------------------------------*/
@@ -147,7 +165,9 @@ document.addEventListener("DOMContentLoaded", () => {
   helper(closeNav, "click", closeNavbar);
   navlinks.forEach((link) => {
     helper(link, "click", closeNavbar);
-  })
+  });
+  
+  helper(themeSwitch, "click", toggleTheme);
 })
 
 
