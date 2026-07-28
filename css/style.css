@@ -14,7 +14,7 @@
 :root {
     /* FONTS */
     --brand-font: "Poppins", sans-serif;
-    
+   
     /* BRAND COLORS */
     --primary: #c1967a;
     --secondary: rgba(129, 75, 25, 0.1);
@@ -37,7 +37,7 @@
     --text-primary: var(--primary);
     --text-inverse: #fff;
     --text-inverse-alt: #f7f8f2;
-    --text-muted :#666666;
+    --text-muted: #666666;
     --text-danger: tomato;
     --text-success: #04dd9b;
     --text-success-soft: rgba(0, 255, 0, 0.1);
@@ -83,15 +83,55 @@
         BORDER & BORDER RADIUS
     ==================================*/
     /* BORDER */
-    --border-thin: 1px solid #ccc;
-    --border-thinHalf: 1.5px solid #ccc;
+    --border: #cccccc;
+    --border-strong: #b5b5b5;
+    --border-thin: 1px solid var(--border);
+    --border-thinHalf: 1.5px solid var(--border-strong);
     --border-grey: grey;
     
     /* BORDER RADIUS  */
     --bd-r-regular: 5px;
     --bd-r-medium: 10px;
+    
+        /* HERO IMAGE */
+    --hero-image: url("../assets/images/hero_bg_primary.jpg");
+    --hero-overlay-start: rgba(0, 0, 0, 0.5);
+    --hero-overlay-end: rgba(0, 0, 0, 0.8);
+    
+    /* ===================================
+        SECTION BCKGROUND
+    ===================================*/
+    --section-background: var(--surface-alt);
 }
 
+.dark-mode {
+    /* BRAND COLORS */
+    /*
+    --primary: #c1967a;
+    --secondary: rgba(129, 75, 25, 0.1);
+    --accent: dodgerblue;
+    --success: #04dd9b;
+    --success-soft: rgba(0, 255, 0, 0.1);
+    --warning: #fad048;
+    --error: tomato;
+    */
+    
+    --surface: #111;
+    --surface-alt: #111;
+    --card-bg: var(--surface-alt);
+    --text:#ffffff;
+    --hero-overlay-start: rgba(0, 0, 0, 0.75);
+    --hero-overlay-end: rgba(0, 0, 0, 0.9);
+    --section-background: var(--surface-alt);
+    
+    --success-soft: var(--success);
+    
+    --border: #222;
+    --border-strong:#333;
+}
+.dark-mode p{
+    color: var(--text-muted);
+}
 /* =======================================
     GLOBALS
 =======================================*/
@@ -103,6 +143,7 @@ html {
 body {
     font-family: var(--brand-font);
     font-size: 15pt;
+    background: var(--surface);
 }
 
 h1 {
@@ -115,11 +156,13 @@ h1 {
 h2 {
     font-size: var(--text-light);
     font-weight: 600;
+    color: var(--text);
 }
 
 h3 {
     font-weight: 500;
     font-size: var(--text-extraLight);
+    color: var(--text);
 }
 
 p {
@@ -236,6 +279,7 @@ img {
     align-items: center;
     gap: 1rem;
 }
+
 /* Logo */
 .logo {
     font-size: 3rem;
@@ -243,12 +287,14 @@ img {
     text-transform: capitalize;
     color: var(--text);
 }
+
 /* Navlist */
 .navbar .navlist {
     display: flex;
     align-items: center;
     gap: 1.6rem;
 }
+
 /* Navlinks */
 .navlink {
     font-size: var(--text-extraLight);
@@ -256,6 +302,7 @@ img {
     text-transform: capitalize;
     color: var(--text);
 }
+
 /* menubar */
 .menu-bar {
     cursor: pointer;
@@ -277,6 +324,7 @@ img {
     justify-content: center;
     gap: .7rem;
 }
+
 /* Dark Mode: Theme switch */
 .header .theme-switch {
     width: 5rem;
@@ -311,10 +359,14 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url("../assets/images/hero_bg_primary.jpg") center no-repeat;
+    background: linear-gradient(
+        to bottom right, 
+        var(--hero-overlay-start),
+        var(--hero-overlay-end)
+        ),
+        var(--hero-image);
     background-size: cover;
-    
+    background-position: center;
 }
 
 .hero .container {
@@ -383,7 +435,8 @@ img {
     MENU SECTION
 =======================================*/
 .menus {
-    background: var(--surface-alt);
+    /* background: var(--surface-alt); */
+    background: var(--section-background);
 }
 
 .menus .menu-content {
@@ -447,12 +500,14 @@ img {
 
 .menu-card .input-group .btn {
     padding-inline: clamp(.5rem, 5vw, 1.8rem);
-    padding-block: clamp(.5rem, 5vw, .7rem);
-    background: var(--success-soft);
+    padding-block: clamp(.5rem, 5vw, .9rem);
+    /* background: var(--success-soft); */
+    background: var(--accent);
     font-size: var(--text-extraLight);
     font-weight: 400;
     color: var(--text);
     text-align: center;
+    border-radius: var(--bd-r-regular);
 }
 
 .menu-card .input-group input {
@@ -460,6 +515,10 @@ img {
     height: 4.2rem;
     padding: .5rem;
     font-size: var(--text-thinHalf);
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    color: var(--text);
+    border-radius: var(--bd-r-regular);
 }
 
 .menu-card .order-btn {
@@ -468,7 +527,8 @@ img {
     margin-top: 1rem;
     padding-inline: var(--btn-inline-padding);
     padding-block: var(--btn-block-padding);
-    background: var(--success-soft);
+    /* background: var(--success-soft); */
+    background: var(--accent);
     border-radius: 50px;
     color: var(--text);
     transition: background 0.3s ease-in, color 0.3s ease-in;
@@ -532,8 +592,11 @@ img {
 
 .review-card p {
     font-style: italic;
+    color: var(--text);
 }
-
+.review-card .review-card-body small{
+    color: var(--text);
+}
 .review-card .review-footer {
     width: 100%;
     display: flex;
@@ -601,9 +664,10 @@ img {
     padding: clamp(1rem, 5vw, 1.5rem);
     font-size: var(--text-thinHalf);
     border-radius: var(--bd-r-regular);
-    border: var(--border-thinHalf);
+    border: 1px solid var(--border-strong);
     outline: none;
     color: var(--text);
+    background: var(--surface);
 }
 
 .contact-form textarea {
@@ -751,7 +815,9 @@ img {
         justify-content: center;
         align-items: center;
     }
-    
+    .menu-bar .icon{
+        fill: var(--text);
+    }
     .header .icon-box {
         display: block;
         cursor: pointer;
