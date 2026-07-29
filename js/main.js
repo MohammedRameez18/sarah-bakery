@@ -242,14 +242,28 @@ function openNavbar() {
 }
 
 function AppIntialiser() {
+  showMenuCards();
   autoToggleTheme();
   applyTheme();
   // toggleTheme();
 }
 
+// SCROLL ANIMATION
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target);
+    }
+  })
+})
+
+$$(".animate-reveal").forEach((element)=>{
+  observer.observe(element);
+})
 document.addEventListener("DOMContentLoaded", () => {
   
-  showMenuCards();
+  // showMenuCards();
   
   // Helper Functions called
   helper(window, "scroll", headerScrolled);
