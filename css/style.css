@@ -18,7 +18,8 @@
     /* BRAND COLORS */
     --primary: #c1967a;
     --secondary: rgba(129, 75, 25, 0.1);
-    --accent: dodgerblue;
+    /* --accent: dodgerblue; */
+    --accent: #0C475F;
     --success: #04dd9b;
     --success-soft: rgba(0, 255, 0, 0.1);
     --warning: #fad048;
