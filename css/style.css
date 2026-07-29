@@ -207,7 +207,7 @@ img {
     padding-inline: var(--primary-btn-paddingX);
     padding-block: var(--primary-btn-paddingY);
     border-radius: 50px;
-    color: var(--text-inverse);
+    color: var(--text);
     font-size: var(--text-extraLightHalf);
     font-weight: 600;
     transition: background 0.3s ease-in, border 0.3s ease-in, color 0.3s ease-in, transform 0.3s ease-in;
