@@ -213,7 +213,7 @@ function showMenuCards() {
                     <input type="number" class="qty" id="qty-${index+1}" value="1" aria-label="input quantity">
                     <button class="btn increase" onclick="increaseQty(this)">+</button>
                   </div>
-                  <button class="btn order-btn">Order No
+                  <button class="btn order-btn">Order Now
                   </button>
 
               </div>
