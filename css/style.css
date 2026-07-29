@@ -735,7 +735,7 @@ img {
     padding-block: var(--btn-block-padding);
     border-radius: var(--bd-r-regular);
     background: var(--accent);
-    font-size: var(--text-thinQuart);
+    font-size: var(--text-extraLight);
     font-weight: 600;
 }
 
