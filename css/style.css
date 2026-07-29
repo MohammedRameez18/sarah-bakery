@@ -210,13 +210,14 @@ img {
     color: var(--text-inverse);
     font-size: var(--text-extraLightHalf);
     font-weight: 600;
-    transition: background 0.3s ease-in, border 0.3s ease-in, color 0.3s ease-in;
+    transition: background 0.3s ease-in, border 0.3s ease-in, color 0.3s ease-in, transform 0.3s ease-in;
 }
 
 .primary-btn:hover {
     background: transparent;
     color: var(--text-primary);
     border: 1.5px solid var(--primary);
+    transform: scale(1.1);
 }
 
 .primary-border-btn {
@@ -227,14 +228,15 @@ img {
     padding-block: var(--primary-btn-paddingY);
     font-size: var(--text-extraLightHalf);
     font-weight: 500;
-    transition: background 0.3s ease-in, border 0.3s ease-in, color 0.3s ease-in;
-    
+    transition: background 0.3s ease-in, border 0.3s ease-in, color 0.3s ease-in, transform 0.3s ease-in;
+
 }
 
 .primary-border-btn:hover {
     background: var(--surface);
     color: var(--text);
     border: none;
+    transform: scale(1.1);
 }
 
 /* Container */
@@ -425,16 +427,37 @@ img {
 
 .about .about-content .image {
     width: 100%;
+    /* overflow-y: hidden; */
 }
 
-.about .about-content .image img {
+.about .image img {
     width: 100%;
     height: auto;
     object-fit: cover;
     border-radius: 10px;
     box-shadow: var(--shadow);
+    transition: transform 0.3s ease-in;
 }
-
+.about .image img:hover{
+    transform: translateY(-5px);
+}
+.about .image small{
+    display: block;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5px);
+    color: var(--text);
+    font-size: var(--text-thinHalf);
+    font-weight: 500;
+    transition: transform 0.3s ease-in,
+        opacity 0.3s ease-in, visibility 0.3s ease-in;
+}
+.about .image img:hover + small{
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
 /* =======================================
     MENU SECTION
 =======================================*/

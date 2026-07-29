@@ -27,6 +27,9 @@ const LAST_THEME_DATE = "lastThemeDate";
 const STORAGE_KEY = "sarahBakery";
 const defaultData = {
   theme: "light",
+  // manualTheme: "",
+  // autoTheme: "",
+  themeMode: "auto",
   lastThemeDate: null
 }
 
@@ -53,22 +56,31 @@ function saveStorageData(key, value) {
     THEME SWITCH: DARK MODE
 ---------------------------------------*/
 //For auto theme toggle based on time
-function autoToggleTheme(){
+function autoToggleTheme() {
   let hours = new Date().getHours();
   const date = new Date().getDate();
-
-  const mydata = getStorageData(STORAGE_KEY);
-
   
-  if(hours >= 17 && hours <= 21){
-    mydata.theme = "dark";
-  }else{
+  const mydata = getStorageData(STORAGE_KEY);
+  
+  //Daily reset to auto
+  if (date !== mydata.lastThemeDate) {
+    mydata.themeMode = "auto";
+  }
+  
+  //Respecting user's manual choice
+  if (mydata.themeMode === "manual") return;
+  
+ // hours = 20; //for debug
+  if (hours >= 4 && hours < 12) {
     mydata.theme = "light";
+  } else if (hours >= 17 && hours < 21) {
+    mydata.theme = "dark";
   }
   
   mydata.lastThemeDate = date;
+  
   saveStorageData(STORAGE_KEY, mydata);
-
+  console.log(mydata);
 }
 
 function toggleTheme() {
@@ -79,29 +91,33 @@ function toggleTheme() {
   // As a whole object
   const mydata = getStorageData(STORAGE_KEY);
   
-  body.classList.toggle("dark-mode");
   
-  if (body.classList.contains("dark-mode")) {
+  if (mydata.theme === "dark") {
     moon.classList.add("remove");
     light.classList.add("active");
     
-    //update theme prop
-    mydata.theme = "dark";
-    
+    mydata.theme = "light";
   } else {
     moon.classList.remove("remove");
     light.classList.remove("active");
+    mydata.theme = "dark";
     
-    mydata.theme = "light";
   }
   
   //update date prop
   mydata.lastThemeDate = date;
-  
+  // mydata.manualTheme = "active";
+  // mydata.autoTheme = false;
+  mydata.themeMode = "manual";
   //update whole object
   saveStorageData(STORAGE_KEY, mydata);
-  console.log(typeof mydata);
+  applyTheme();
   console.log(mydata);
+}
+
+function applyTheme() {
+  const theme = getThemeValue(THEME_KEY);
+  body.classList.toggle("dark-mode", theme === "dark");
 }
 /* ------------------------------------
     SCROLL EVENTS: HEADER
@@ -225,9 +241,10 @@ function openNavbar() {
   navbar.classList.add("active");
 }
 
-function AppIntialiser(){
+function AppIntialiser() {
   autoToggleTheme();
-  toggleTheme();
+  applyTheme();
+  // toggleTheme();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
