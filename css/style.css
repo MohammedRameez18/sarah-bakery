@@ -20,7 +20,8 @@
     --secondary: rgba(129, 75, 25, 0.1);
     /* --accent: dodgerblue; */
     --accent: #0C475F;
-    --success: #04dd9b;
+    /* --success: #04dd9b; */
+    --success: #024B35;
     --success-soft: rgba(0, 255, 0, 0.1);
     --warning: #fad048;
     --error: tomato;
@@ -40,7 +41,7 @@
     --text-inverse-alt: #f7f8f2;
     --text-muted: #666666;
     --text-danger: tomato;
-    --text-success: #04dd9b;
+    --text-success: #024B35;
     --text-success-soft: rgba(0, 255, 0, 0.1);
     
     /* =================================
@@ -506,7 +507,7 @@ img {
 
 .menu-card .content-group small {
     font-size: var(--text-extraLightHalf);
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-success);
     padding: .2rem 1rem;
     border: 1px dashed #ccc;
