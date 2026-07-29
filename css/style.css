@@ -737,6 +737,7 @@ img {
     background: var(--accent);
     font-size: var(--text-extraLight);
     font-weight: 600;
+    color: var(--text-inverse);
 }
 
 /* =======================================
