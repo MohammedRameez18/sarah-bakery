@@ -17,11 +17,9 @@
     --brand-font: "Poppins", sans-serif;
    
     /* BRAND COLORS */
-    --primary: #c1967a;
+    --primary: #E19D68;
     --secondary: rgba(129, 75, 25, 0.1);
-    /* --accent: dodgerblue; */
     --accent: #0C475F;
-    /* --success: #04dd9b; */
     --success: #024B35;
     --success-soft: rgba(0, 255, 0, 0.1);
     --warning: #fad048;
