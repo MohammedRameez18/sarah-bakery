@@ -184,7 +184,8 @@ ul {
 }
 
 img {
-    width: 10rem;
+    /* width: 10rem; */
+    aspect-ratio: 1/1;
 }
 
 /* SVG ICONS */
@@ -448,7 +449,6 @@ img {
 
 .about .about-content .image {
     width: 100%;
-    /* overflow-y: hidden; */
 }
 
 .about .image img {

@@ -1,6 +1,6 @@
 // UTILITY FUNCTION
-const $ = (selector) => document.querySelector(selector);
-const $$ = (selector) => document.querySelectorAll(selector);
+const select = (selector) => document.querySelector(selector);
+const selectAll = (selector) => document.querySelectorAll(selector);
 
 function helper(element, event, callback) {
   if (element) {
@@ -9,14 +9,14 @@ function helper(element, event, callback) {
 }
 
 // ELEMENTS
-const menuBar = $(".menu-bar");
-const closeNav = $(".close");
-const navbar = $(".navbar");
-const navlinks = $$(".navlink");
-const menus = $(".menus");
-const header = $(".header");
-const themeSwitch = $(".theme-switch");
-const body = $("body");
+const menuBar = select(".menu-bar");
+const closeNav = select(".close");
+const navbar = select(".navbar");
+const navlinks = selectAll(".navlink");
+const menus = select(".menus");
+const header = select(".header");
+const themeSwitch = select(".theme-switch");
+const body = select("body");
 
 const myArray = [];
 const THEME_KEY = "theme";
@@ -258,7 +258,7 @@ const observer = new IntersectionObserver((entries)=>{
   })
 })
 
-$$(".animate-reveal").forEach((element)=>{
+selectAll(".animate-reveal").forEach((element)=>{
   observer.observe(element);
 })
 document.addEventListener("DOMContentLoaded", () => {
