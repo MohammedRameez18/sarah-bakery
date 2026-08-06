@@ -88,7 +88,6 @@
     --border-strong: #b5b5b5;
     --border-thin: 1px solid var(--border);
     --border-thinHalf: 1.5px solid var(--border-strong);
-    --border-grey: grey;
     
     /* BORDER RADIUS  */
     --bd-r-regular: 5px;
@@ -106,17 +105,7 @@
 }
 
 .dark-mode {
-    /* BRAND COLORS */
-    /*
-    --primary: #c1967a;
-    --secondary: rgba(129, 75, 25, 0.1);
-    --accent: dodgerblue;
-    --success: #04dd9b;
-    --success-soft: rgba(0, 255, 0, 0.1);
-    --warning: #fad048;
-    --error: tomato;
-    */
-    
+
     --surface: #111;
     --surface-alt: #111;
     --card-bg: var(--surface-alt);
@@ -436,6 +425,9 @@ img {
 /* =======================================
     ABOUT SECTION
 =======================================*/
+.about{
+    /* background: gold; */
+}
 .about .about-content {
     width: 100%;
     display: grid;
@@ -788,7 +780,13 @@ img {
     justify-content: center;
     align-items: center;
 }
-
+.footer .readme{
+    font-size: 1.3rem;
+    color: var(--text);
+    font-weight: 500;
+    text-transform: lowercase;
+    text-decoration: underline;
+}
 /* =======================================
     MEDIA QUERIES
 =======================================*/
