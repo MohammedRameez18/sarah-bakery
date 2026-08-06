@@ -50,7 +50,7 @@ About Sarah-Bakery/
     │   └── icons_sprite.svg
     │
     └── images/
-        └── Placeholder Images
+        └── Original Images
 ```
 ⸻
 
