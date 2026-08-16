@@ -194,6 +194,7 @@ img {
 
 /* Primary Btns */
 .primary-btn {
+    --text: #000000;
     background: var(--primary);
     padding-inline: var(--primary-btn-paddingX);
     padding-block: var(--primary-btn-paddingY);
