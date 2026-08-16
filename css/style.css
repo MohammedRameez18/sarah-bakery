@@ -530,7 +530,7 @@ img {
 .menu-card .content-group small {
     font-size: var(--text-extraLightHalf);
     font-weight: 700;
-    color: var(--text-success);
+    color: var(--text);
     padding: .2rem 1rem;
     border: 1px dashed #ccc;
     border-radius: 5px;
