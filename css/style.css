@@ -374,18 +374,33 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(
-        to bottom right, 
-        var(--hero-overlay-start),
-        var(--hero-overlay-end)
-        ),
-        var(--hero-image);
-    background-size: cover;
-    background-position: center;
+    
 }
-
+/* hero image */
+.hero .hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+/*  Bring it to behind the content */
+    z-index: -1;
+}
+/* Overlay */
+.hero .overlay{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height:100%;
+    background: linear-gradient(to bottom right,
+    var(--hero-overlay-start),
+    var(--hero-overlay-end));
+    z-index: 1;
+}
 .hero .container {
     border-radius: 10px;
+    z-index: 2;
 }
 
 .hero .hero-content {
