@@ -284,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // MENUS DATA
 const data = [
 {
-  image: "../assets/images/menu-1.jpg",
+  image: "../assets/images/menu-1.webp",
   alt: "fresh bread and croissants",
   name: "Bread and Croissants",
   price: 5,
@@ -292,7 +292,7 @@ const data = [
   height: "427",
 },
 {
-  image: "../assets/images/menu-2.jpg",
+  image: "../assets/images/menu-2.webp",
   alt: "fresh lemon cake served on plate",
   name: "Lemon cake",
   price: 2,
@@ -300,7 +300,7 @@ const data = [
   height: "427",
 },
 {
-  image: "../assets/images/menu-3.jpg",
+  image: "../assets/images/menu-3.webp",
   alt: "fresh homemade lemon loaf cake",
   name: "Lemon loaf cake",
   price: 7,
@@ -308,7 +308,7 @@ const data = [
   height: "427",
 },
 {
-  image: "../assets/images/menu-4.jpg",
+  image: "../assets/images/menu-4.webp",
   alt: "fresh strawbery cupcake",
   name: "Strawbery cupcake",
   price: 2,
@@ -316,7 +316,7 @@ const data = [
   height: "427",
 },
 {
-  image: "../assets/images/menu-5.jpg",
+  image: "../assets/images/menu-5.webp",
   alt: "fresh lemon choclate cake",
   name: "Lemon choclaye cake",
   price: 5,
@@ -324,7 +324,7 @@ const data = [
   height: "427",
 },
 {
-  image: "../assets/images/menu-6.jpg",
+  image: "../assets/images/menu-6.webp",
   alt: "fresh baked seeded bread rolls",
   name: "Seeded bread rolls",
   price: 8,
